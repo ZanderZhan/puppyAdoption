@@ -22,7 +22,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.GridCells
 import androidx.compose.foundation.lazy.LazyVerticalGrid
 import androidx.compose.foundation.lazy.items
@@ -53,7 +56,6 @@ val datas = listOf(
     Puppy("weishcor", R.mipmap.weishcor, "There are two types of Welsh Corgi: the Cardigan Welsh Corgi and the Pembroke Welsh Corgi. The Pembroke Corgi has a shorter body, straighter and lighter leg bones, and the Welsh Corgi has a better back coat. But temperamentally, the Pembroke Corgi is restless, excitable, and less tame than the Cardigan Welsh Corgi."),
     Puppy("yorkshre", R.mipmap.yorkshre, "Cheerful, lively, not very strong or strong, not rustic or rough in appearance. Leg not too short or too long, standing like an alert hunter with wide range of control. It is a type of small pet dog. Personality is smart and confident, alert and friendly but also take a little stubborn, generally like sajiao.")
 )
-
 
 class MainActivity : AppCompatActivity() {
     @ExperimentalFoundationApi
@@ -107,9 +109,13 @@ fun PuppyGrids(puppys: List<Puppy>) {
                 modifier = Modifier
                     .padding(10.dp)
                     .clickable {
-                        startActivity(context, Intent(context, DetailActivity::class.java).apply {
-                            putExtra("pic", puppy.pic)
-                        }, null)
+                        startActivity(
+                            context,
+                            Intent(context, DetailActivity::class.java).apply {
+                                putExtra("pic", puppy.pic)
+                            },
+                            null
+                        )
                     }
             )
         }
